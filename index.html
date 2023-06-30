@@ -1,62 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <style>
-            :root {
-                --pointer-x-percent: 50%;
-                --pointer-y-percent: 50%;
-                --torch-color: black
-            }
-            body {
-                margin: 0;
-                padding: 0;
-                height: 100vh
-            }
-            .container {
-                position: relative;
-            }
-            canvas {
-                position: absolute;
-            }
-            .mask {
-                position: absolute;
-                width: 100vw;
-                height: 100vh;
-                background-color: hsla(0, 0%, 0%, 1);
-                mask: radial-gradient(
-                    circle at var(--pointer-x-percent) var(--pointer-y-percent),
-                    var(--torch-color) 40px,
-                    black 150px
-                );
-                -webkit-mask: radial-gradient(
-                    circle at var(--pointer-x-percent) var(--pointer-y-percent),
-                    var(--torch-color) 40px,
-                    black 150px
-                );
-            }
-            .text {
-                position: fixed;
-                background-color: rgba(255, 255, 255, 0.7);
-                bottom: 15px;
-                transform: translateX(-50%);
-                left: 50%;
-                padding: 10px;
-                font-family: monospace;
-                border-radius: 10px;
-            }
-        </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    </head>
-    <body>
-        <div class="container">
-            <canvas id="canvas"></canvas>
-            <div class="mask" id="mask"></div>
-            <div class="text">
-                You have found gizmo the cat <span id="counterText">0</span> times.
-            </div>
-        </div>
-        <script src="index.js"></script>
-    </body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="gizmo.png" />
+    <title>Find Gizmo the Cat | Find the cat</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body scroll="no">
+    <div class="container">
+      <canvas id="canvas"></canvas>
+      <div class="mask" id="mask"></div>
+      <div class="score">
+        <p>
+          <b><span id="counterText"></span></b>
+        </p>
+        <p><span id="timerText"></span></p>
+      </div>
+      <div class="info">
+        Made by <a href="https://gracechin.github.io">Grace Chin</a>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>

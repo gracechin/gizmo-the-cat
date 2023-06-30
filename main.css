@@ -1,0 +1,76 @@
+:root {
+  --pointer-x-percent: 50%;
+  --pointer-y-percent: 50%;
+  --torch-color: black;
+  --torch-inner-size: 0;
+  --torch-outer-size: 150px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+canvas {
+  position: absolute;
+}
+
+.mask {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 0%, 0%, 1);
+  mask: radial-gradient(
+    circle at var(--pointer-x-percent) var(--pointer-y-percent),
+    var(--torch-color) var(--torch-inner-size),
+    black var(--torch-outer-size)
+  );
+  -webkit-mask: radial-gradient(
+    circle at var(--pointer-x-percent) var(--pointer-y-percent),
+    var(--torch-color) var(--torch-inner-size),
+    black var(--torch-outer-size)
+  );
+  /* Disable browser handling of gestures*/
+  touch-action: none;
+}
+
+.score {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 15px;
+  transform: translateX(-50%);
+  left: 50%;
+  padding: 10px;
+  font-family: monospace;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.score > p {
+  margin: 0;
+  padding: 0;
+}
+
+.info {
+  position: fixed;
+  bottom: 1.5em;
+  right: 1.5em;
+  height: 1.5em;
+  font-size: 1em;
+  color: white;
+  font-family: monospace;
+  text-align: right;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.info > a {
+  color: white;
+}
